@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ergonatur - Dakari</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: Arial, sans-serif; /* A common sans-serif font */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 250vh;
+            color: #333; /* Default text color */
+            box-sizing: border-box; /* Ensure padding and border are included in element's total width and height */
+        }
+
+        /* --- Header Section (Top Green Bar + Logo) --- */
+        .header-dakari {
+            display: flex;
+            height: 200px; /* Approximate height based on image */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow if any */
+        }
+
+        .header-dakari-left {
+            flex: 0 0 700px; /* Fixed width for the logo section as seen in the image */
+            background-color: #FFFFFF; /* White background */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .logo-dakari {
+            background-color: #388e3c; /* Ergonatur green */
+            color: #FFFFFF;
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.5em;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .logo-dakari span {
+            display: block;
+            font-size: 0.6em; /* Smaller text for "Sistemas de descanso" */
+            margin-top: -3px; /* Adjust spacing */
+            font-weight: normal;
+        }
+
+        .website-dakari {
+            font-size: 0.85em;
+            color: #333;
+            margin-top: 8px;
+        }
+
+        .header-dakari-right {
+            flex-grow: 1; /* Takes up remaining space */
+            background-color: #00695c; /* Dark green from the image */
+            display: flex;
+            align-items: center;
+            padding: 0 50px; /* Padding for text content */
+            color: #FFFFFF;
+            position: relative; /* For positioning the headboard image */
+        }
+
+        .header-dakari-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-dakari-text h1 {
+            font-size: 1.1em;
+            margin: 0;
+            font-weight: normal;
+            color: #E0E0E0; /* Slightly lighter text for "Cabeceros de cama" */
+        }
+
+        .header-dakari-text p {
+            font-size: 3.8em; /* Larger for "Dakari" */
+            margin: 0;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .header-dakari-text span {
+            font-size: 1.2em;
+            margin-top: -5px; /* Adjust spacing */
+            color: #E0E0E0; /* Lighter text for the number */
+        }
+
+        .headboard-header-image {
+            
+            
+            position: absolute;
+            right: 0px; /* Position to the right */
+            top: -130%;
+            
+            /* Mimic internal lines if any (e.g., using gradients or pseudo-elements) */
+            
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+        /* --- Main Content Area (Two Columns) --- */
+        .content-dakari {
+            flex-grow: 1;
+            display: flex;
+        }
+
+        .left-column-dakari {
+            flex: 0 0 700px; /* Fixed width, matches header left */
+            background-color: #FFFFFF;
+            padding: 20px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+            border-right: 1px solid #EEEEEE; /* Subtle divider from right column */
+        }
+
+        /* Dimension Section */
+        .headboard-dimension-container {
+            width: 100%;
+            margin-bottom: 25px;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #D0D0D0; /* Dashed line as in image */
+        }
+
+        .headboard-dimension-container h3 {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .headboard-dimension-image {
+            background-color: #FFFFFF; /* Placeholder for the headboard outline */
+            
+            width: 90%;
+            height: 45px; /* Approximate height */
+            margin: 0 auto 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.75em;
+            color: #AAAAAA;
+            border-radius: 3px;
+        }
+        .headboard-dimension-image.large {
+            height: 55px; /* Taller for the 3 Bultos one */
+        }
+
+        .dimensions-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.75em;
+            color: #555;
+            margin-top: 15px;
+        }
+        .dimensions-table th, .dimensions-table td {
+            border: 1px solid #EEE;
+            padding: 7px 5px;
+            text-align: center;
+        }
+        .dimensions-table th {
+            background-color: #F8F8F8;
+            font-weight: bold; /* Thicker font as in image */
+        }
+        .dimensions-table td {
+            background-color: #FFFFFF;
+        }
+        .dimensions-table p {
+            font-size: 0.65em;
+            margin-top: 10px;
+            color: #777;
+        }
+
+        /* Acabados (Finishes) Section */
+        .acabados-section {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .acabados-title {
+            background-color: #EEEEEE;
+            padding: 7px 10px;
+            margin-bottom: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            gap: 12px; /* Space between swatches */
+            margin-bottom: 20px;
+        }
+
+        .color-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            font-size: 0.7em;
+            color: #555;
+        }
+
+        .color-box {
+            width: 55px; /* Size of color swatch */
+            height: 55px;
+            border: 1px solid #DDD;
+            margin-bottom: 5px;
+            border-radius: 3px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05); /* Inner shadow for depth */
+        }
+
+        /* Specific colors from the image (approximated) */
+        .color-fango { background-color: #d8c7b8; }
+        .color-arena { background-color: #e5d8c3; }
+        .color-negro { background-color: #333333; }
+        .color-chocolate { background-color: #5b4034; }
+        .color-gris { background-color: #8f8f8f; }
+        .color-piedra { background-color: #a5a5a5; }
+        .color-blanco { background-color: #ffffff; }
+        .color-crema { background-color: #f0ead8; }
+        .color-cacao { background-color: #6a4f41; }
+        .color-visón { background-color: #7a6e60; }
+
+        /* Textile Swatches - approximated */
+        .color-textil-grisclaro { background-color: #bdbdbd; }
+        .color-textil-grisoscuro { background-color: #606060; }
+        .color-textil-marrondun { background-color: #927a69; }
+        .color-textil-azulatlantico { background-color: #3a5c7f; }
+        .color-textil-grisplomo { background-color: #4a4a4a; }
+        .color-textil-beige { background-color: #d4c1a5; }
+        .color-textil-azulpavo { background-color: #427c8d; }
+        .color-textil-verdeagua { background-color: #8eb7b4; }
+
+
+        /* Feature Icons */
+        .feature-icons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns */
+            gap: 12px 10px; /* Row and column gap */
+            width: 100%;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #D0D0D0; /* Dashed line */
+        }
+
+        .icon-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.7em;
+            color: #555;
+        }
+
+        .icon-placeholder {
+            width: 22px;
+            height: 22px;
+            border: 1px solid #CCC;
+            margin-right: 8px;
+            border-radius: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #AAA; /* Placeholder text color */
+            font-size: 0.8em;
+            background-color: #F8F8F8; /* Light background for the icon area */
+        }
+
+        /* --- Right Column (Main Product Display) --- */
+        .right-column-dakari {
+            flex-grow: 1; /* Takes up remaining space */
+            background-color: #F5F5F5; /* Light grey background for the bed display */
+            display: flex;
+            justify-content: center;
+            align-items: flex-end; /* Align elements to the bottom */
+            position: relative;
+            padding-bottom: 25px; /* Space from the bottom edge */
+            overflow: hidden; /* Ensure elements don't spill */
+        }
+
+        .main-bed-display {
+            width: 90%; /* Adjust size of the bed/headboard unit */
+            max-width: 800px; /* Limit max width for larger screens */
+            height: 90%; /* Adjust height based on right column's height */
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* This div itself acts as the overall bed area, its background is the floor/wall blend */
+        }
+
+        .main-headboard-dakari {
+            background-color: #FFFFFF; /* White headboard */
+            width: 85%; /* Slightly narrower than the bed base */
+            height: 280px; /* Approximate height */
+            border-radius: 8px; /* Slightly rounded corners */
+            box-shadow: 0px 5px 20px rgba(0,0,0,0.1); /* Soft shadow */
+            position: absolute;
+            top: 20px; /* Position from the top of its parent (.main-bed-display) */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2; /* Above other bed elements */
+            border: 1px solid #F0F0F0;
+            /* Mimic the subtle horizontal lines on the headboard */
+            background-image: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.05) 30.5%, transparent 30.5%),
+                              linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.05) 60%, rgba(0,0,0,0.05) 60.5%, transparent 60.5%);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+        .main-bed-base {
+            background-color: #FBFBFB; /* Very light grey for mattress */
+            width: 95%; /* Wider than headboard */
+            height: 70%; /* Takes up most of the rest of the space */
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            border-radius: 5px 5px 0 0; /* Rounded top corners for mattress */
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.05); /* Shadow from mattress */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 10%; /* To create space for duvet */
+        }
+
+        /* Duvet/Comforter Placeholder */
+        .duvet-placeholder {
+            background-color: #E8E8D5; /* Light beige/greenish color for duvet */
+            width: 90%;
+            height: 60%; /* Proportion of the bed base */
+            border-radius: 8px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1); /* Soft shadow for duvet */
+            position: relative;
+            z-index: 1; /* Above bed base */
+        }
+
+        /* Pillows Placeholder (Optional but adds realism) */
+        .pillow-placeholder {
+            background-color: #FFFFFF;
+            width: 30%;
+            height: 60px;
+            border-radius: 50px / 15px; /* Rounded pill shape */
+            position: absolute;
+            top: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 2;
+            border: 1px solid #f0f0f0;
+        }
+        .pillow-placeholder.left { left: 15%; }
+        .pillow-placeholder.right { right: 15%; }
+
+
+        .nightstand-main-left, .nightstand-main-right {
+            background-color: #FFFFFF;
+            width: 160px; /* Width of nightstand */
+            height: 140px; /* Height of nightstand */
+            border-radius: 8px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+            position: absolute;
+            bottom: 0px; /* Aligned with the bottom of the column */
+            z-index: 3; /* Above headboard and bed */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Place content at the bottom */
+            align-items: center;
+            overflow: hidden;
+            border: 1px solid #F0F0F0;
+            padding-bottom: 10px; /* Inner padding for drawer */
+        }
+
+        .nightstand-main-left {
+            left: 10%; /* Position relative to the .right-column-dakari */
+        }
+
+        .nightstand-main-right {
+            right: 10%; /* Position relative to the .right-column-dakari */
+        }
+
+        .nightstand-drawer-main {
+            background-color: #c29d6f; /* Wood color for drawer */
+            width: 85%;
+            height: 45px;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            position: relative;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05); /* Inner shadow for depth */
+        }
+
+        .nightstand-drawer-main::after { /* Drawer handle */
+            content: '';
+            position: absolute;
+            width: 30%;
+            height: 3px;
+            background-color: rgba(0,0,0,0.2);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 2px;
+        }
+
+        .nightstand-top-deco { /* For the small vase/plant on the right nightstand */
+            background-color: #BDB76B; /* Olive green for plant */
+            width: 30px;
+            height: 40px;
+            border-radius: 5px;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            z-index: 4; /* On top of nightstand */
+        }
+        .nightstand-top-deco::before { /* Pot part */
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background-color: #A0522D; /* Brown for pot */
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-dakari">
+        <div class="header-dakari-left">
+            <div style="text-align: right;">
+    <img src="https://ergonatur.es/content/uploads/bc_logo.png" width="230" height="auto" style="vertical-align: top;"/>
+</div>
+        </div>
+        <div class="header-dakari-right">
+            <div class="header-dakari-text">
+                <h1>Cabeceros de cama</h1>
+                <p>Dakari</p>
+                <span>727</span>
+            </div>
+            <div class="headboard-header-image">
+<img src="https://github.com/lawebdelcolchon/Catalogo/blob/main/Productos/cabeceros/631%20-%20Cabecero%20tapizado%20Julie/Blanco01_Post.png?raw=true" width="600" height="auto" style="vertical-align: top;"/>
+
+                </div>
+        </div>
+    </div>
+
+    <div class="content-dakari">
+        <div class="left-column-dakari">
+
+
+            <div class="headboard-dimension-container">
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentacion del producto breve</title>
+</head>
+<body>
+
+    
+    <h3>Dimensiones / Medidas</h3>
+
+    <div style="
+        display: flex; /* Usamos Flexbox para crear las columnas */
+        gap: 20px; /* Espacio entre las columnas */
+        justify-content: center; /* Centra las columnas horizontalmente */
+        flex-wrap: wrap; /* Permite que las columnas se envuelvan en pantallas pequeñas */
+        margin: 5px; /* Margen para todo el contenedor */
+        font-family: Arial, sans-serif; /* Fuente para todo el contenedor */
+    ">
+        <div style="
+            flex: 1; /* Cada columna ocupa el mismo espacio disponible */
+            min-width: 100px; /* Ancho mínimo para evitar que las columnas se hagan demasiado pequeñas */
+            padding: 5px;
+            text-align: center;
+            
+        ">
+            <h2 style=" margin-bottom: 5px;"> 2 Botones</h2>
+            <p>90 100 115 130<p/>
+             <div class="headboard-dimension-image">
+                     <img src="https://github.com/lawebdelcolchon/Catalogo/blob/main/Productos/cabeceros/631%20-%20Cabecero%20tapizado%20Julie/Blanco%2002_Post%20(2).png?raw=true" width="250" height="auto"/>
+                </div>
+            
+        </div>
+
+        <div style="
+            flex: 1; /* Cada columna ocupa el mismo espacio disponible */
+            min-width: 100px; /* Ancho mínimo para evitar que las columnas se hagan demasiado pequeñas */
+            padding: 5px;
+            text-align: center;
+            
+        ">
+            <h2 style=" margin-bottom: 5px;"> 3 Botones</h2>
+            <p>145 160 180<p/>
+             <div class="headboard-dimension-image large">
+                    <img src="https://github.com/lawebdelcolchon/Catalogo/blob/main/Productos/cabeceros/631%20-%20Cabecero%20tapizado%20Julie/Blanco%2002_Post.png?raw=true" width="350" height="auto"/>
+                </div>
+            
+        </div>
+
+                <table class="dimensions-table">
+                    <thead>
+                        <tr>
+                            <th>Medida</th>
+                            <th>Ancho</th>
+                            <th>Fondo</th>
+                            <th>Alto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>90</td><td>98</td><td>10</td><td>120</td></tr>
+                        <tr><td>105</td><td>113</td><td>10</td><td>120</td></tr>
+                        <tr><td>135</td><td>143</td><td>10</td><td>120</td></tr>
+                        <tr><td>150</td><td>158</td><td>10</td><td>120</td></tr>
+                        <tr><td>160</td><td>168</td><td>10</td><td>120</td></tr>
+                        <tr><td>180</td><td>188</td><td>10</td><td>120</td></tr>
+                        <tr><td>200</td><td>208</td><td>10</td><td>120</td></tr>
+                    </tbody>
+                </table>
+                <p>* Las medidas pueden tener una variación de +/- 1cm</p>
+            </div>
+
+            <div class="acabados-section">
+                <div class="acabados-title">ACABADOS POLIPIEL</div>
+                <div class="color-grid">
+                    <div class="color-item">
+                        <div class="color-item" class="color-box color-fango"><img src="https://github.com/lawebdelcolchon/Catalogo/blob/main/MUESTRAS%20POLIPIELES%20OFICIAL%20INDIVIDUAL/Blanco%20polipiel%20oficial.jpg?raw=true" width="150" height="auto" style="vertical-align: top;"/></div>
+                        <span>BLANCO</span>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-item" class="color-box color-arena"><img src="https://github.com/lawebdelcolchon/Catalogo/blob/main/MUESTRAS%20POLIPIELES%20OFICIAL%20INDIVIDUAL/Beige%20polipiel.jpg?raw=true" width="150" height="auto" style="vertical-align: top;"/></div>
+                        <span>BEIGE</span>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-item" class="color-box color-negro"><img src="https://github.com/lawebdelcolchon/Catalogo/blob/main/MUESTRAS%20POLIPIELES%20OFICIAL%20INDIVIDUAL/Negro%20polipiel%20oficial.jpg?raw=true" width="150" height="auto" style="vertical-align: top;"/></div>
+                        <span>NEGRO</span>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-item" class="color-box color-chocolate"><img src="https://github.com/lawebdelcolchon/Catalogo/blob/main/MUESTRAS%20POLIPIELES%20OFICIAL%20INDIVIDUAL/Chocolate%20polipiel.jpg?raw=true" width="150" height="auto" style="vertical-align: top;"/></div>
+                        <span>CHOCOLATE</span>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-item" class="color-box color-gris"><img src="https://github.com/lawebdelcolchon/Catalogo/blob/main/MUESTRAS%20POLIPIELES%20OFICIAL%20INDIVIDUAL/Gris%20ceniza%20polipiel%20oficial.jpg?raw=true" width="150" height="auto" style="vertical-align: top;"/></div>
+                        <span>GRIS CENIZA</span>
+                    </div>
+                    
+                </div>
+
+                <div class="acabados-title">ACABADOS TEXTIL SUAVE</div>
+                <div class="color-grid">
+                    <div class="color-item">
+                        <div class="color-item" class="color-box color-textil-grisclaro"><img src="https://github.com/lawebdelcolchon/Catalogo/blob/main/MUESTRAS%20TEJIDOS%20SUAVES%20AL%20TACTO%20OFICIAL%20INDIVIDUAL/beige%20claro.jpg?raw=true" width="150" height="auto" style="vertical-align: top;"/></div>
+                        <span>TEXTIL BEIGE</span>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-item" class="color-box color-textil-grisoscuro"><img src="https://github.com/lawebdelcolchon/Catalogo/blob/main/MUESTRAS%20TEJIDOS%20SUAVES%20AL%20TACTO%20OFICIAL%20INDIVIDUAL/gris%20claro.jpg?raw=true" width="150" height="auto" style="vertical-align: top;"/></div>
+                        <span>TEXTIL GRIS CLARO</span>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-item" class="color-box color-textil-marrondun"><img src="https://github.com/lawebdelcolchon/Catalogo/blob/main/MUESTRAS%20TEJIDOS%20SUAVES%20AL%20TACTO%20OFICIAL%20INDIVIDUAL/gris%20oscuro.jpg?raw=true" width="150" height="auto" style="vertical-align: top;"/></div>
+                        <span>TEXTIL GRIS OSCURO</span>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-item" class="color-box color-textil-azulatlantico"><img src="https://github.com/lawebdelcolchon/Catalogo/blob/main/MUESTRAS%20TEJIDOS%20SUAVES%20AL%20TACTO%20OFICIAL%20INDIVIDUAL/marron%20claro.jpg?raw=true" width="150" height="auto" style="vertical-align: top;"/></div>
+                        <span>TEXTIL MARRON</span>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-item" class="color-box color-textil-grisplomo"><img src="https://github.com/lawebdelcolchon/Catalogo/blob/main/MUESTRAS%20TEJIDOS%20SUAVES%20AL%20TACTO%20OFICIAL%20INDIVIDUAL/turquesa.jpg?raw=true" width="150" height="auto" style="vertical-align: top;"/></div>
+                        <span>TEXTIL TURQUESA</span>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-item" class="color-box color-textil-beige"><img src="https://github.com/lawebdelcolchon/Catalogo/blob/main/MUESTRAS%20TEJIDOS%20SUAVES%20AL%20TACTO%20OFICIAL%20INDIVIDUAL/rosa%20palo%20textil%20suave.jpg?raw=true" width="150" height="auto" style="vertical-align: top;"/></div>
+                        <span>TEXTIL ROSAPALO</span>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-item" class="color-box color-textil-azulpavo"><img src="https://github.com/lawebdelcolchon/Catalogo/blob/main/MUESTRAS%20TEJIDOS%20SUAVES%20AL%20TACTO%20OFICIAL%20INDIVIDUAL/Verde%20Agua.jpg?raw=true" width="150" height="auto" style="vertical-align: top;"/></div>
+                        <span>TEXTIL VERDE AGUA</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-icons">
+                <div class="icon-item">
+                    <img src="https://github.com/lawebdelcolchon/Catalogo/blob/main/iconos_catalogo/Mesa%20de%20trabajo%202@4x-100.jpg?raw=true" width="150" height="auto" style="vertical-align: top;"/>
+                </div>
+
+                <div class="icon-item">
+                    <img src="https://github.com/lawebdelcolchon/Catalogo/blob/main/iconos_catalogo/Mesa%20de%20trabajo%204@4x-100.jpg?raw=true" width="150" height="auto" style="vertical-align: top;"/>
+                </div>
+
+                <div class="icon-item">
+                    <img src="https://github.com/lawebdelcolchon/Catalogo/blob/main/iconos_catalogo/Mesa%20de%20trabajo%205@4x-100.jpg?raw=true" width="150" height="auto" style="vertical-align: top;"/>
+                </div>
+                <div class="icon-item">
+                <img src="https://github.com/lawebdelcolchon/Catalogo/blob/main/iconos_catalogo/Mesa%20de%20trabajo%206@4x-100.jpg?raw=true" width="150" height="auto" style="vertical-align: top;"/>
+                </div>
+
+                <div class="icon-item">
+                    <img src="https://github.com/lawebdelcolchon/Catalogo/blob/main/iconos_catalogo/Mesa%20de%20trabajo%207@4x-100.jpg?raw=true" width="150" height="auto" style="vertical-align: top;"/>
+
+                </div>
+                <div class="icon-item">
+                    <img src="https://github.com/lawebdelcolchon/Catalogo/blob/main/iconos_catalogo/Mesa%20de%20trabajo%202@4x-100.jpg?raw=true" width="150" height="auto" style="vertical-align: top;"/>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="right-column-dakari">
+            <div class="main-bed-display">
+                <div class="main-headboard-dakari">
+                    </div>
+                <div class="main-bed-base">
+                    <div class="duvet-placeholder"></div>
+                    <div class="pillow-placeholder left"></div>
+                    <div class="pillow-placeholder right"></div>
+                </div>
+                <div class="nightstand-main-left">
+                    <div class="nightstand-drawer-main"></div>
+                </div>
+                <div class="nightstand-main-right">
+                    <div class="nightstand-drawer-main"></div>
+                    <div class="nightstand-top-deco"></div> </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
